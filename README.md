@@ -1,21 +1,45 @@
-# 📊 Data-Sets Collection
+# 📊 Car Sales Data Cleaning & Processing (Pandas Project)
 
-This repository serves as a centralized collection of various datasets (both raw/messy and cleaned) used for Data Analytics projects, Excel dashboards, and SQL querying practice.
-
----
-
-## 📁 Repository Structure
-- archive (2).zip / Unzipped Files: Contains raw datasets alongside cleaned versions.
-- Data formats included: .csv.
+This repository contains the data cleaning workflow and transformation steps applied to a raw *Car Sales / Auction Dataset* using Python's pandas library.
 
 ---
 
-## 🧼 Data Cleaning & Processing Workflow
-1. *Raw Data Handling:* Identifying missing values, duplicate entries, and inconsistent data types.
-2. *Data Transformation:* Standardizing columns, handling null values, and structuring data for analysis.
-3. *Tools Used:* Advanced Excel, Power BI, and SQL.
+## 🛠️ Data Cleaning Workflow & Steps Applied
+
+### 1. Initial Assessment & Column Renaming
+* *Inspection:* Identified null values across multiple categorical and numerical attributes (e.g., Make, Model, Transmission, Condition).
+* *Standardization:* Renamed all column headers to proper *Title Case* (data.rename()) for consistency.
 
 ---
 
-## 🎯 Purpose
-To showcase hands-on data cleaning, ETL (Extract, Transform, Load) processes, and data preparation techniques required for building analytics models.
+### 2. Missing Value Imputation (Handling NaNs)
+* *Categorical Imputation:* Categorical columns (Transmission, Make, Model, Trim, Body, Color, Interior) were filled with "Unknown".
+* *Numerical Imputation:* Missing values in numerical attributes (Condition, Odometer, Mmr, Sellingprice) were imputed using column *medians* to avoid skewness from outliers.
+* *Critical Record Removal:* Rows missing key identifiers like Vin and Saledate were dropped (dropna()).
+
+---
+
+### 3. Data Type Formatting & Typecasting
+* *Datetime Conversion:* Parsed raw string dates in Saledate into standardized datetime64[ns, UTC] objects using pd.to_datetime().
+* *Typecasting:* Explicitly cast Odometer to int64.
+
+---
+
+### 4. Text Case Standardization & Anomaly Cleanup
+* *Upper Case:* Applied .str.upper() to structural codes (Vin, State).
+* *Title Case:* Applied .str.title() to textual attributes (Make, Model, Trim, Body, Seller, Color, Interior).
+* *Lower Case:* Lowercased values in Transmission.
+* *Anomaly Handling:* Cleaned invalid entries in State by capping text lengths.
+
+---
+
+## 📁 Output Dataset
+The cleaned, ready-for-analysis dataset was exported as:
+* cleaned_car_prices.csv
+
+---
+
+## 🧰 Tech Stack Used
+* *Language:* Python
+* *Library:* pandas
+* *Environment:* Jupyter Notebook / Anaconda
