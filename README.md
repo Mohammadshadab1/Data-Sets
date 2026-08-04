@@ -4,7 +4,7 @@ This repository contains the data cleaning workflow and transformation steps app
 
 ---
 
-## 🛠️ Data Cleaning Workflow & Steps Applied
+## 🛠️ Data Cleaning Workflow & Steps Applied 
 
 ### 1. Initial Assessment & Column Renaming
 * *Inspection:* Identified null values across multiple categorical and numerical attributes (e.g., Make, Model, Transmission, Condition).
