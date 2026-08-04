@@ -21,7 +21,7 @@ This repository contains the data cleaning workflow and transformation steps app
 
 ### 3. Data Type Formatting & Typecasting
 * *Datetime Conversion:* Parsed raw string dates in Saledate into standardized datetime64[ns, UTC] objects using pd.to_datetime().
-* *Typecasting:* Explicitly cast Odometer to int64.
+* *Typecasting:* Explicitly cast Odometer to int64. 
 
 ---
 
